@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="left-container">
+
+        <div class="title">
+            <img src="./icons/2x/outline_space_dashboard_white_24dp.png" alt="dashboard">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="null"></div>
+        <div class="list home">
+            <img src="./icons/1x/outline_home_white_24dp.png" alt="Home" class="icon">
+            <p>Home</p>
+        </div>
+        <div class="list Profile">
+            <img src="./icons/1x/outline_account_circle_white_24dp.png" alt="Profile" class="icon">
+            <p>Profile</p>
+        </div>
+        <div class="list Messages">
+            <img src="./icons/1x/outline_chat_bubble_white_24dp.png" alt="Messages" class="icon">
+            <p>Messages</p>
+        </div>
+        <div class=" list History">
+            <img src="./icons/1x/outline_schedule_white_24dp.png" alt="History" class="icon">
+            <p>History</p>
+        </div>
+        <div class="list Tasks">
+            <img src="./icons/1x/outline_task_alt_white_24dp.png" alt="Tasks" class="icon">
+            <p>Tasks</p>
+        </div>
+        <div class="list Communities">
+            <img src="./icons/1x/outline_people_white_24dp.png" alt="Communities" class="icon">
+            <p>Communities</p>
+        </div>
+        <div class="null"></div>
+        <div class="list Settings">
+            <img src="./icons/1x/outline_settings_white_24dp.png" alt="Settings" class="icon">
+            <p>Settings</p>
+        </div>
+        <div class="list Support">
+            <img src="./icons/1x/outline_help_outline_white_24dp.png" alt="Support" class="icon">
+            <p>Support</p>
+        </div>
+        <div class=" list Privacy">
+            <img src="./icons/1x/outline_verified_user_white_24dp.png" alt="Privacy" class="icon">
+            <p>Privacy</p>
+        </div>
+    </div>
+    <div class="top-container">
+        <div class="search">
+            <img src="./icons/1x/outline_search_white_24dp.png" alt="" class="icon">
+            <input type="search">
+        </div>
+
+        <div class="account">
+            <img src="./icons/1x/outline_notifications_white_24dp.png" alt="">
+            <img src="https://avatars.githubusercontent.com/u/96069002?v=4" alt="avatar" class="small-avatar" onclick="openLink()">
+            <a href="https://github.com/Digidr0">Digidro</a>
+        </div>
+        <div class="greeting">
+            <img src="https://avatars.githubusercontent.com/u/96069002?v=4" alt="avatar" class="big-avatar" onclick="openLink()">
+            <div class="greeting-text-container">
+                <p class="greeting-text title">Hi there,</p>
+                <a class="greeting-text subtitle" href="https://github.com/Digidr0">Digidro (@Digidr0)</a>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="new">New</button>
+            <button class="upload">Upload</button>
+            <button class="share">Share</button>
+        </div>
+    </div>
+    <div class="main-container"></div>
+</body>
+<script type="text/javascript">
+    function openLink() {
+        window.open("https://github.com/Digidr0");
+    }
+    </script>
+</html>
