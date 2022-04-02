@@ -7,17 +7,14 @@
 }
 :root {
   --font: "Roboto", sans-serif;
-  --color: lightseagreen;
+  --main-color: lightseagreen;
+  --secondary-color: coral;
+  --secondary-color-accent: hsl(16, 100%, 64%);
   z-index: 0;
 }
 
 :hover {
   transition: all 0.15s;
-}
-
-html {
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
 
 html::-webkit-scrollbar {
@@ -30,11 +27,12 @@ body {
   grid-template: 1fr 6fr / 1fr 6fr;
   font-weight: 400;
   font-family: var(--font);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
+  scrollbar-width: none;
 }
 
 .left-container {
-  background-color: var(--color);
+  background-color: var(--main-color);
   color: white;
   border-right: 3px solid white;
   grid-row: 1 / 3;
@@ -48,6 +46,9 @@ body {
   margin-left: 15px;
   margin-right: 20px;
 }
+.left-container > div:first-child {
+  border-bottom: 2px hsl(177, 100%, 30%) solid;
+}
 .left-container p {
   cursor: pointer;
 }
@@ -55,7 +56,7 @@ body {
   font-size: 1.2rem;
 }
 .left-container > *:hover {
-  color: var(--color);
+  color: var(--main-color);
   filter: brightness(150%);
 }
 .list > .icon {
@@ -64,8 +65,19 @@ body {
 
 .top-container {
   color: white;
-  background-color: coral;
+  background-color: var(--secondary-color);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(
+      135deg,
+      var(--secondary-color-accent) 25%,
+      transparent 25%
+    ),
+    linear-gradient(225deg, var(--secondary-color-accent) 25%, transparent 25%),
+    linear-gradient(45deg, var(--secondary-color-accent) 25%, transparent 25%),
+    linear-gradient(315deg, var(--secondary-color-accent) 25%, coral 25%);
+  background-position: 23px 0, 23px 0, 0 0, 0 0;
+  background-size: 46px 46px;
+  background-repeat: repeat;
 
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -101,7 +113,7 @@ input[type="search"] {
   max-width: 600px;
   font-family: var(--font);
   font-weight: 600;
-  color: var(--color);
+  color: var(--main-color);
   padding: 8px;
 }
 input[type="search"]:focus {
@@ -119,7 +131,7 @@ input[type="search"]::-webkit-search-cancel-button {
   color: white;
 }
 a:hover {
-  color: var(--color);
+  color: var(--main-color);
 }
 
 .greeting-text.title {
@@ -140,7 +152,7 @@ a:hover {
 .buttons * {
   height: 2rem;
   width: 6rem;
-  background-color: var(--color);
+  background-color: var(--main-color);
   outline: none;
   border: none;
   color: white;
@@ -155,23 +167,20 @@ a:hover {
 
 /* images */
 
-.big-avatar,
-.small-avatar {
+.avatar {
   border-radius: 50%;
   border: 2px solid white;
   cursor: pointer;
+  height: 50px;
 }
-.big-avatar {
+.big.avatar {
   height: 80px;
   margin-right: 30px;
-}
-.small-avatar {
-  height: 50px;
 }
 
 .big-avatar:hover,
 .small-avatar:hover {
-  border-color: var(--color);
+  border-color: var(--main-color);
 }
 
 .main-container {
@@ -188,7 +197,7 @@ a:hover {
   margin-bottom: 30px;
 }
 .card {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   transition: transform 0.2s;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
@@ -208,11 +217,17 @@ a:hover {
 .project.card {
   max-height: 500px;
   padding: 10px;
-  border-left: 10px var(--color) solid;
- 
+  border-left: 10px var(--secondary-color) solid;
 }
-.project.card .icon{
+.project.card p{
+  color: gray;
+  cursor: pointer;
+}
+.project.card .icon {
   margin: 5px;
+}
+.card .icon:not(.checked) {
+  opacity: 0.3;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -241,5 +256,40 @@ a:hover {
 .announcements.card div:last-child {
   border: none;
 }
+.announcements.card p,
+.trending .card p {
+  color: gray;
+}
 
+.trending {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 
+.trending.card {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-bottom: 15px;
+  justify-content: left;
+  align-items: center;
+  padding: 8px;
+}
+.trending > .avatar {
+  margin-right: 30px;
+}
+.trending.item {
+  display: flex;
+  justify-content: center;
+}
+.trending.card:hover {
+  transition: background-color 0.15s;
+  background-color: #ddd;
+}
+
+footer{
+  grid-column: 1 / 3;
+  background: linear-gradient(90deg, white, #eee);
+}
