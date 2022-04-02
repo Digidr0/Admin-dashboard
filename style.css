@@ -11,8 +11,17 @@
   z-index: 0;
 }
 
-:hover{
-transition: all .2s;
+:hover {
+  transition: all 0.15s;
+}
+
+html {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+html::-webkit-scrollbar {
+  width: 0px; /* For Chrome, Safari, and Opera */
 }
 body {
   display: grid;
@@ -39,7 +48,7 @@ body {
   margin-left: 15px;
   margin-right: 20px;
 }
-.left-container p{
+.left-container p {
   cursor: pointer;
 }
 .list {
@@ -65,9 +74,8 @@ body {
   padding-right: 30px;
   padding-top: 8px;
   padding-bottom: 8px;
-  gap: 10px;
 
-  font-size: 25px;  /*top container font size*/
+  font-size: 25px; /*top container font size*/
 }
 .search,
 .greeting,
@@ -77,7 +85,8 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
-.search > *, .account > *,
+.search > *,
+.account > *,
 .buttons > * {
   margin: 10px;
 }
@@ -89,6 +98,7 @@ input[type="search"] {
   flex: 1;
   border: none;
   height: 30px;
+  max-width: 600px;
   font-family: var(--font);
   font-weight: 600;
   color: var(--color);
@@ -108,8 +118,8 @@ input[type="search"]::-webkit-search-cancel-button {
   text-decoration: none;
   color: white;
 }
-a:hover{
-  color: var(--color)
+a:hover {
+  color: var(--color);
 }
 
 .greeting-text.title {
@@ -123,10 +133,11 @@ a:hover{
 
 /* buttons */
 
-.account, .buttons {
+.account,
+.buttons {
   justify-content: right;
 }
-.buttons *{
+.buttons * {
   height: 2rem;
   width: 6rem;
   background-color: var(--color);
@@ -136,7 +147,6 @@ a:hover{
   border-radius: 2rem;
   font-size: 0.8em;
   cursor: pointer;
-
 }
 
 .buttons *:hover {
@@ -160,9 +170,76 @@ a:hover{
 }
 
 .big-avatar:hover,
-.small-avatar:hover{
+.small-avatar:hover {
   border-color: var(--color);
 }
 
 .main-container {
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
+.main-container > div {
+  margin: 10px;
+}
+
+.main-container h2 {
+  margin-bottom: 30px;
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: transform 0.2s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.projects {
+  grid-row: 1 / 3;
+}
+
+.project-grid {
+  height: calc(100% - 55px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+.project.card {
+  max-height: 500px;
+  padding: 10px;
+  border-left: 10px var(--color) solid;
+ 
+}
+.project.card .icon{
+  margin: 5px;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .project.card:hover {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    transform: scale(1.2);
+    z-index: 1;
+  }
+}
+
+.announcements.card {
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.announcements.card > div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.5);
+}
+
+.announcements.card div:last-child {
+  border: none;
+}
+
+
